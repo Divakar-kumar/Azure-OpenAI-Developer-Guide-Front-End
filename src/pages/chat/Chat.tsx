@@ -170,7 +170,9 @@ const Chat = () => {
                 <div className={styles.chatContainer}>
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
-                            <SparkleFilled fontSize={"120px"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
+                            <div className={styles.logoContent}>
+                            <a href="https://dtdl.in/" rel="home" aria-current="page"><img src="https://dtdl.in/wp-content/uploads/2024/01/T_logo_claim_rgb_p-e1710562735703.png" alt=""></img></a>
+                            </div>
                             <h1 className={styles.chatEmptyStateTitle}>Chat with your data</h1>
                             <h2 className={styles.chatEmptyStateSubtitle}>Ask anything or try an example</h2>
                             <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />
