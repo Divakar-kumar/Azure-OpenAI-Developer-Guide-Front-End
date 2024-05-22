@@ -49,7 +49,13 @@
     transition-duration: 500ms;
     transition-property: opacity;
 }
-
+.headerVideo {
+    height: 84px;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
 .headerNavPageLink:hover {
     opacity: 1;
 }

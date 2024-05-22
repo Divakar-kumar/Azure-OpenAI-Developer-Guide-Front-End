@@ -31,7 +31,7 @@ const Layout = () => {
                     </nav>
                     <h4 className={styles.headerRightText}>DTDL-CustomerCare</h4>
                 </div>
-                <div class="headerVideo">
+                <div className={styles.headerVideo}>
 	        <video autoplay="" muted="" loop="" playsinline="">
 	            <source src="https://static.dtdl.in/live/images/bgOg.mp4" type="video/mp4" />	            
 	        </video>

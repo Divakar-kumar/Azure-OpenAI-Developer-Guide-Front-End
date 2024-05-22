@@ -18,13 +18,7 @@
     margin-bottom: 5px;
     cursor: pointer;
 }
-.headerVideo {
-    height: 84px;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    top: 0;
-}
+
 .example:hover {
     box-shadow:
         0px 8px 16px rgba(0, 0, 0, 0.14),
