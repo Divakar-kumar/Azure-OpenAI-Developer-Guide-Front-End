@@ -32,7 +32,7 @@ const Layout = () => {
                     <h4 className={styles.headerRightText}>DTDL-CustomerCare</h4>
                 </div>
                 <div className={styles.headerVideo}>
-	        <video autoplay="" muted="" loop="" playsinline="">
+	        <video autoplay muted loop playsinline className={styles.headerVideoTransform}>
 	            <source src="https://static.dtdl.in/live/images/bgOg.mp4" type="video/mp4" />	            
 	        </video>
 	    </div>
