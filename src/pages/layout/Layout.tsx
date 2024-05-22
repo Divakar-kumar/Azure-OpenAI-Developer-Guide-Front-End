@@ -33,8 +33,7 @@ const Layout = () => {
                 </div>
                 <div class="headerVideo">
 	        <video autoplay="" muted="" loop="" playsinline="">
-	            <source src="https://static.dtdl.in/live/images/bgOg.mp4" type="video/mp4" />
-	            <!-- <source src="https://zoltan.co/work/telekom/oneapp/header/bg.mp4" type="video/mp4"> -->
+	            <source src="https://static.dtdl.in/live/images/bgOg.mp4" type="video/mp4" />	            
 	        </video>
 	    </div>
             </header>
