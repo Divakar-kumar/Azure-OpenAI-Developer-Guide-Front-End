@@ -5,7 +5,7 @@ import styles from "./Example.module.css";
 const DEFAULT_EXAMPLES: string[] = [
     "What was the price of the product with sku `PH-TM30`?",
     "Can you compare between different TV packages?",
-    "Can you provide more information about Telekom Fiber 500?"
+    "Can you provide information about Telekom Fiber 500?"
 ];
 
 const GPT4V_EXAMPLES: string[] = [
