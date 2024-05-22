@@ -4,8 +4,8 @@ import styles from "./Example.module.css";
 
 const DEFAULT_EXAMPLES: string[] = [
     "What was the price of the product with sku `PH-TM30`?",
-    "Can you compare between different TV packages?",
-    "Can you list products under Mobile Phone category, under 500 euros?"
+    "Can you compare the various TV packages available?",
+    "Could you list the products available in the Mobile Phone category that are priced under 500 euros?"
 ];
 
 const GPT4V_EXAMPLES: string[] = [
