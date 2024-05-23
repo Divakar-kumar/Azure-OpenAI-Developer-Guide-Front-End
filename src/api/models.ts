@@ -75,7 +75,12 @@ export type ChatAppRequest = {
     session_id: string;
     prompt: string;
 };
+
 export type ClearChatAppRequest = {
+    session_id: string;    
+};
+
+export type SummaryAppRequest = {
     session_id: string;    
 };
 
