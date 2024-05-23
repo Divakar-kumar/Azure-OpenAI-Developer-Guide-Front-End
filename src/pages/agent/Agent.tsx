@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import  Chat  from '../chat/Chat';
 import styles from './Agent.module.css';
-import { SummaryAppRequest, fetchSummary } from '../../api';
+import { SummaryAppRequest, SummaryResponse, fetchSummary } from '../../api';
 
 const AgentView = () => {
     const [summary, setSummary] = useState('');
@@ -20,8 +20,10 @@ const AgentView = () => {
                 throw Error("No response body");
             } else if (contentType?.indexOf('text/html') !== -1 || contentType?.indexOf('text/plain') !== -1) {
                 const bodyText = await response.text();
-                console.error(`Chat Error: ${bodyText}`);
-                setSummary(bodyText);                
+                console.error(`Chat Error: ${bodyText}`);                            
+            }else {
+                const parsedResponse: SummaryResponse = await response.json();
+                setSummary(parsedResponse.message);
             }
             
         };
