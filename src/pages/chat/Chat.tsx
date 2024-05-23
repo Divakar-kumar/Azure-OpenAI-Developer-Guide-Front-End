@@ -7,10 +7,12 @@ import styles from "./Chat.module.css";
 
 import {
     chatApi,
+    clearChatApi,
     RetrievalMode,
     ChatAppResponse,
     ChatAppResponseOrError,
     ChatAppRequest,
+    ClearChatAppRequest,
     ResponseMessage,
     VectorFieldOptions,
     GPT4VInput
@@ -94,14 +96,26 @@ const Chat = () => {
             setIsLoading(false);
         }
     };
-
-    const clearChat = () => {
-        lastQuestionRef.current = "";
-        error && setError(undefined);
-        setActiveCitation(undefined);
-        setAnswers([]);
-        setIsLoading(false);
-        setIsStreaming(false);
+    const clearChat = async () => {
+        try {
+            const request: ClearChatAppRequest = {                
+                session_id: "1234" 
+            };
+            const response = await clearChatApi(request);
+            if (!response.ok) {
+                throw new Error("Failed to clear chat");
+            }
+            // Clear the chat state
+            lastQuestionRef.current = "";
+            error && setError(undefined);
+            setActiveCitation(undefined);
+            setAnswers([]);
+            setIsLoading(false);
+            setIsStreaming(false);
+        } catch (e) {
+            console.error(`Clear Chat Error: ${e}`);
+            setError(e);
+        }
     };
 
     useEffect(() => chatMessageStreamEnd.current?.scrollIntoView({ behavior: "smooth" }), [isLoading]);

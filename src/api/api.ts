@@ -1,4 +1,4 @@
-import { ChatAppResponse, ChatAppResponseOrError, ChatAppRequest, Config } from "./models";
+import { ChatAppResponse, ChatAppResponseOrError, ChatAppRequest,ClearChatAppRequest, Config } from "./models";
 import { BACKEND_URI } from "./BACKEND_URI";
 
 function getHeaders(): Record<string, string> {
@@ -17,6 +17,15 @@ export async function chatApi(request: ChatAppRequest): Promise<Response> {
         body: body
     });
 }
+
+export const clearChatApi = async (request: ClearChatAppRequest): Promise<Response> => {
+    const response = await fetch(`${BACKEND_URI}/clear`, {
+        method: 'DELETE',
+        headers: getHeaders(),        
+        body: JSON.stringify(request),
+    });
+    return response;
+};
 
 export function getCitationFilePath(citation: string): string {
     return `${BACKEND_URI}/content/${citation}`;
