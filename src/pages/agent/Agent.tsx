@@ -23,7 +23,10 @@ const AgentView = () => {
                 console.error(`Chat Error: ${bodyText}`);                            
             }else {
                 const parsedResponse: SummaryResponse = await response.json();
-                setSummary(parsedResponse.message);
+                const summaryData= parsedResponse.message;
+                if (summaryData && Object.keys(summaryData).length > 0) { 
+                    setSummary(summaryData);
+                }
             }
             
         };
@@ -34,12 +37,17 @@ const AgentView = () => {
     return (
         <div className={styles.container}>
             <div className={styles.chatContainer}>
-                <Chat />
-            </div>
+                <Chat />                
+            </div>      
             <div className={styles.summaryContainer}>
-                <h2>Conversation Summary</h2>
-                <p>{summary}</p>
-            </div>
+                    
+                {summary && Object.keys(summary).length > 0 && (
+                    <>
+                        <h2>Conversation Summary</h2>
+                        <pre>{summary}</pre> {/* Using <pre> to preserve newlines */}
+                    </>
+                )}
+            </div>    
         </div>
     );
 };
