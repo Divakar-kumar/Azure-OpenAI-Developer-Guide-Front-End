@@ -26,7 +26,7 @@ const router = createHashRouter([
                 element: <Chat />
             },
             {
-                path: "agent",
+                path: "agent/:sessionId",
                 element: <AgentView />
             },
             {
