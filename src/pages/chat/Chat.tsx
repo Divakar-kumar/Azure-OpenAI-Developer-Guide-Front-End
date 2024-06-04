@@ -2,6 +2,8 @@ import { useRef, useState, useEffect } from "react";
 import { Checkbox, Panel, DefaultButton, TextField, SpinButton } from "@fluentui/react";
 import { SparkleFilled } from "@fluentui/react-icons";
 import readNDJSONStream from "ndjson-readablestream";
+import { v4 as uuidv4 } from 'uuid';
+
 
 import styles from "./Chat.module.css";
 
@@ -53,6 +55,8 @@ const Chat = () => {
     const [selectedAnswer, setSelectedAnswer] = useState<number>(0);
     const [answers, setAnswers] = useState<[user: string, response: ChatAppResponse][]>([]);
     const [showGPT4VOptions, setShowGPT4VOptions] = useState<boolean>(false);
+    const [sessionId, setSessionId] = useState<string>(uuidv4());
+
 
     const makeApiRequest = async (question: string) => {
         lastQuestionRef.current = question;
@@ -64,7 +68,7 @@ const Chat = () => {
         try {
             const request: ChatAppRequest = {
                 prompt: question,
-                session_id: "1234" // TODO: Need to generate a session id
+                session_id: sessionId 
             };
 
             const response = await chatApi(request);
