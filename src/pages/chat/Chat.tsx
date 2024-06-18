@@ -103,7 +103,7 @@ const Chat = () => {
     const clearChat = async () => {
         try {
             const request: ClearChatAppRequest = {                
-                session_id: "1234" 
+                session_id: sessionId 
             };
             const response = await clearChatApi(request);
             if (!response.ok) {
